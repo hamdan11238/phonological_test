@@ -30,29 +30,35 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return Scaffold(
+      body : Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/home_screen.png'),
+                 fit: BoxFit.fill, ), 
+        ),
+      child: GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const TalkingBearApp()),
         );
       },
-       child: const SizedBox.expand(
-        child: Center(
-          child: Stack(
+       child:  SizedBox.expand(
+
+          
+         
+          child: Center(
            
-          children:<Widget>[ Center(
-            child: const Image(
-              image: AssetImage('assets/home_screen.png'),
-            ),
-          ),
+           
+  
           // ignore: avoid_hardcoded_text
-              Align (
+              child: Align (
                 
                alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: EdgeInsets.only(bottom :110.0),
-                  child: const Text(
+                  child: Text(
                     
                       'Tap to Start',
                       style: TextStyle(
@@ -72,11 +78,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
                 
-          ],
+        
           ),
         ),
        
        ),
+    ),
+  
     );
     
   }
