@@ -251,7 +251,7 @@ class _RhymingTestPageState extends State<RhymingTestPage> {
         _waitingForMic = true;
         _isListening = false;
       });
-      await _speak("I didn't hear you. Let's try again.");
+      await _speak(_feedbackMessage);
       return;
     }
     

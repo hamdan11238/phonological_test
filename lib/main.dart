@@ -7,8 +7,79 @@ import 'initial_sound_test_page.dart';
 import 'final_sound_test_page.dart';
 import 'middle_sound_test_page.dart';
 
-void main() {
-  runApp(const TalkingBearApp());
+void main()
+{
+ 
+  runApp(const MyApp());
+  }
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(), // Must be inside MaterialApp
+    );
+  }
+}
+
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const TalkingBearApp()),
+        );
+      },
+       child: const SizedBox.expand(
+        child: Center(
+          child: Stack(
+           
+          children:<Widget>[ Center(
+            child: const Image(
+              image: AssetImage('assets/home_screen.png'),
+            ),
+          ),
+          // ignore: avoid_hardcoded_text
+              Align (
+                
+               alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom :110.0),
+                  child: const Text(
+                    
+                      'Tap to Start',
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        
+                        shadows: [
+                          Shadow(
+                            offset: Offset(2, 2),
+                            blurRadius: 5.0,
+                            color: Colors.black45,
+                          )
+                        ],
+                      ),
+                  ),
+                ),
+              ),
+                
+          ],
+          ),
+        ),
+       
+       ),
+    );
+    
+  }
 }
 
 class TalkingBearApp extends StatelessWidget {
